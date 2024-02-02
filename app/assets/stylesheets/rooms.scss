@@ -1,0 +1,31 @@
+.msg-form {
+    position: fixed;
+    bottom: 0;
+    right: 30vh;
+    width: 40%
+  }
+
+  .col-md-10 {
+    height: 90vh;
+    overflow: scroll;
+  }
+
+  .msg-content {
+    width: 80%;
+    margin-right: 5px;
+  }
+  .message-box {
+    width: fit-content;
+    max-width: 40%;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #555555 ;
+    padding: 10px
+  }
+
+  .button1 {
+    border-radius: 40px; 
+    width: fit-content;
+    font-size: 13px;
+    border: 2px solid #04AA6D; /* Green */}

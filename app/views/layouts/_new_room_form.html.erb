@@ -1,0 +1,9 @@
+<%= form_with(model: @room, id: 'room_id', remote: true, class: "d-flex" ) do |f| %>
+  <%= f.text_field :name, class: "form-control", autocomplete: 'off',placeholder: "Enter room name" %>
+  <%= f.submit "Create",data: { disable_with: false } %>
+<% end %>
+<script>
+    document.addEventListener('turbo:submit-end', function () {
+    document.getElementById('room_id').reset();
+    });
+</script>

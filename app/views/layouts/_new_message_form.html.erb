@@ -1,0 +1,11 @@
+<div class="form-group msg-form">
+  <%= form_with(model: [@single_room ,@message],id: 'form_id', remote: true, class: "d-flex") do |f| %>
+    <%= f.text_field :content, id: 'chat-text',placeholder: "type here...", class: "form-control msg-content", autocomplete: 'off' %>
+    <%= f.submit data: { disable_with: false }, class: "button1" %>
+  <% end %>
+  <script>
+    document.addEventListener('turbo:submit-end', function () {
+    document.getElementById('form_id').reset();
+    });
+  </script>
+</div>

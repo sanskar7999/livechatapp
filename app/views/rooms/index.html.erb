@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-2">
+    <h5> Hi <%= @current_user.username %> </h5>
+    <h4 class="text-center"> chating with <%= @user&.username || @single_room.name if @single_room.present? %> </h4>
+    <div>
+      <%= turbo_stream_from "users" %>
+      <div id="users">
+        other users<%= render @users %>
+      </div>
+    </div>
+
+    <%= render partial: "layouts/new_room_form" %>
+    <h4> Rooms </h4>
+    <div>
+      <%= turbo_stream_from "rooms" %>
+      <div id="rooms">
+        <%= render @rooms %>
+      </div>
+    </div class>
+    <%= link_to 'Sign Out', signout_path,data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"} %>
+  </div>
+    <div class="col-md-10 bg-dark text-light">
+    <% if @single_room %>
+      <h4 class="text-center"> <%= @single_room.name %> </h4>
+      <%= turbo_stream_from @single_room %>
+      <div id="messages">
+         <%= render @messages %>
+      </div>
+      <%= render partial: 'layouts/new_message_form' %>
+    <% end %>
+  </div>
+  </div>
+</div>
